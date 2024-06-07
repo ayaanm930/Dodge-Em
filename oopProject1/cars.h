@@ -207,31 +207,7 @@ public:
 
 	void collisionCar(Car& c) override { ///ENEMY COLLISION (LIFE LOST )
 		if (!dieded ) {
-			if (dx == 1 && dy == 0 && c.dx == -1 && c.dy == 0 && car.getPosition().x > c.car.getPosition().x && car.getPosition().x< c.car.getPosition().x+c.car.getGlobalBounds().width && car.getPosition().y > c.car.getPosition().y - c.car.getGlobalBounds().height - 15 && car.getPosition().y + car.getGlobalBounds().height < c.car.getPosition().y + 15) {
-				dx = -1;
-				dy = 0;
-				car.setPosition(510, 760);
-				car.setRotation(-90);
-				lives--;
-				dieded = 1;
-			}
-			if (dx == -1 && dy == 0 && c.dx == 1 && c.dy == 0 && car.getPosition().x < c.car.getPosition().x && car.getPosition().x > c.car.getPosition().x - c.car.getGlobalBounds().width && car.getPosition().y < c.car.getPosition().y + c.car.getGlobalBounds().height + 15 && car.getPosition().y - car.getGlobalBounds().height > c.car.getPosition().y - 15) {
-				dx = -1;
-				dy = 0;
-				car.setPosition(510, 760);
-				car.setRotation(-90);
-				lives--;
-				dieded = 1;
-			}
-			if (dx == 0 && dy == -1 && c.dx == 0 && c.dy == 1 && car.getPosition().y < c.car.getPosition().y && car.getPosition().y > c.car.getPosition().y - c.car.getGlobalBounds().height && car.getPosition().y > c.car.getPosition().x - c.car.getGlobalBounds().width && car.getPosition().x > c.car.getPosition().x - c.car.getGlobalBounds().width - 15 && car.getPosition().x + car.getGlobalBounds().width < c.car.getPosition().x + 15) {
-				dx = -1;
-				dy = 0;
-				car.setPosition(510, 760);
-				car.setRotation(-90);
-				lives--;
-				dieded = 1;
-			}
-			if (dx == 0 && dy == 1 && c.dx == 0 && c.dy == -1 && car.getPosition().y > c.car.getPosition().y && car.getPosition().y < c.car.getPosition().y + c.car.getGlobalBounds().height && car.getPosition().x < c.car.getPosition().x + c.car.getGlobalBounds().width + 15 && car.getPosition().x - car.getGlobalBounds().width> c.car.getPosition().x - 15) {
+			if (car.getGlobalBounds().intersects(sf::FloatRect(static_cast<float>(c.car.getPosition().x), static_cast<float>(c.car.getPosition().y), 1, 1))) {
 				dx = -1;
 				dy = 0;
 				car.setPosition(510, 760);

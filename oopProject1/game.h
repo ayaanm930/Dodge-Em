@@ -26,7 +26,7 @@ public:
     Car* p; //player 
     Car* en[2];
     Food** food;
-    string level ="3";
+    string level ="1";
     bool keyflag = 0;
     // add other game attributes
     Arena* arena; //arena blocks
